@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ApplyPage() {
 	const router = useRouter();
@@ -37,81 +38,100 @@ export default function ApplyPage() {
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
-	const handleNextStep = () => {
-		// Validate step 1
-		if (step === 1) {
-			if (!formData.name || !formData.email || !formData.phone) {
-				// toast({
-				// 	description: "Please fill in all required fields",
-				// 	variant: "destructive",
-				// });
-				return;
-			}
-
-			// Basic email validation
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			if (!emailRegex.test(formData.email)) {
-				// toast({
-				// 	title: "Error",
-				// 	description: "Please enter a valid email address",
-				// 	variant: "destructive",
-				// });
-				return;
-			}
-
-			// Basic phone validation (10 digits)
-			const phoneRegex = /^\d{10}$/;
-			if (!phoneRegex.test(formData.phone)) {
-				// toast({
-				// 	title: "Error",
-				// 	description: "Please enter a valid 10-digit phone number",
-				// 	variant: "destructive",
-				// });
-
-				return;
-			}
+	const validateStep1 = () => {
+		if (!formData.name.trim()) {
+			toast.error("Please enter your full name");
+			return false;
+		}
+		if (!formData.email.trim()) {
+			toast.error("Please enter your email address");
+			return false;
+		}
+		if (!formData.phone.trim()) {
+			toast.error("Please enter your phone number");
+			return false;
 		}
 
-		setStep(2);
+		// Basic email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(formData.email)) {
+			toast.error("Please enter a valid email address");
+			return false;
+		}
+
+		// Basic phone validation (10 digits)
+		const phoneRegex = /^\d{10}$/;
+		if (!phoneRegex.test(formData.phone)) {
+			toast.error("Please enter a valid 10-digit phone number");
+			return false;
+		}
+
+		return true;
+	};
+
+	const validateStep2 = () => {
+		if (!formData.loanAmount.trim()) {
+			toast.error("Please enter the loan amount");
+			return false;
+		}
+		if (!formData.address.trim()) {
+			toast.error("Please enter your business address");
+			return false;
+		}
+
+		// Validate loan amount is a positive number
+		const amount = parseFloat(formData.loanAmount);
+		if (isNaN(amount) || amount <= 0) {
+			toast.error("Please enter a valid loan amount");
+			return false;
+		}
+
+		return true;
+	};
+
+	const handleNextStep = () => {
+		if (step === 1 && validateStep1()) {
+			setStep(2);
+		}
 	};
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		setIsSubmitting(true);
 
-		// Validate step 2
-		if (!formData.loanAmount || !formData.address) {
-			// toast({
-			// 	title: "Error",
-			// 	description: "Please fill in all required fields",
-			// 	variant: "destructive",
-			// });
-			setIsSubmitting(false);
+		if (!validateStep2()) {
 			return;
 		}
 
-		// Simulate API call
+		setIsSubmitting(true);
+		const loadingToast = toast.loading("Processing your application...");
+
 		try {
-			// In a real app, you would send the form data to your backend
+			// Simulate API call
 			await new Promise((resolve) => setTimeout(resolve, 1500));
 
-			// Store form data in session storage for the payment page
-			sessionStorage.setItem("loanApplication", JSON.stringify(formData));
+			// // Store form data in session storage for the payment page
+			// sessionStorage.setItem("loanApplication", JSON.stringify(formData));
+
+			// Log the form data
+			console.log("Form submitted:", formData);
+
+			toast.success("Application submitted successfully!", {
+				id: loadingToast,
+			});
 
 			// Redirect to payment page
 			router.push("/apply/payment");
 		} catch (error) {
-			// toast({
-			// 	title: "Error",
-			// 	description: "Something went wrong. Please try again.",
-			// 	variant: "destructive",
-			// });
+			toast.error("Something went wrong. Please try again.", {
+				id: loadingToast,
+			});
 			setIsSubmitting(false);
 		}
 	};
 
 	return (
 		<div className='container mx-auto max-w-4xl py-12'>
+			<Toaster position='top-center' />
 			<div className='flex flex-col items-center justify-center space-y-4 text-center mb-8'>
 				<div className='space-y-2'>
 					<h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
