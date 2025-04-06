@@ -127,7 +127,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 9rem; /* w-36 */
+  width: 7rem; /* w-36 */
 }
 
 .step-item:not(:first-child):before {

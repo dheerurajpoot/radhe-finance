@@ -64,11 +64,11 @@ export function WhyChooseUs() {
 					<div className='flex items-center justify-center'>
 						<div className='relative h-[450px] w-full overflow-hidden rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 shadow-lg'>
 							<Image
-								src='/placeholder.svg?height=450&width=600'
+								src='/loan.jpg?height=450&width=600'
 								alt='Business growth'
 								width={600}
 								height={450}
-								className='object-cover'
+								className='object-cover w-full h-full'
 							/>
 						</div>
 					</div>

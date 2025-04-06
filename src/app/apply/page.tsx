@@ -109,8 +109,8 @@ export default function ApplyPage() {
 			// Simulate API call
 			await new Promise((resolve) => setTimeout(resolve, 1500));
 
-			// // Store form data in session storage for the payment page
-			// sessionStorage.setItem("loanApplication", JSON.stringify(formData));
+			// Store form data in session storage for the payment page
+			sessionStorage.setItem("loanApplication", JSON.stringify(formData));
 
 			// Log the form data
 			console.log("Form submitted:", formData);
@@ -130,10 +130,10 @@ export default function ApplyPage() {
 	};
 
 	return (
-		<div className='container mx-auto max-w-4xl py-12'>
+		<div className='container mx-auto max-w-3xl py-12'>
 			<Toaster position='top-center' />
 			<div className='flex flex-col items-center justify-center space-y-4 text-center mb-8'>
-				<div className='space-y-2'>
+				<div className='space-y-2 px-4'>
 					<h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
 						Apply for a Business Loan
 					</h1>

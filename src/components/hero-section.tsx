@@ -27,12 +27,12 @@ export function HeroSection() {
 						<div className='flex flex-col gap-2 min-[400px]:flex-row'>
 							<Link
 								href='#calculator'
-								className='inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'>
+								className='inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'>
 								Calculate Your Loan
 							</Link>
 							<Link
 								href='/apply'
-								className='inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'>
+								className='inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring'>
 								Apply Now{" "}
 								<ArrowRight className='ml-2 h-4 w-4' />
 							</Link>
@@ -69,7 +69,7 @@ export function HeroSection() {
 							<div className='absolute -top-4 -left-4 h-72 w-72 rounded-full bg-green-100 blur-3xl opacity-70'></div>
 							<div className='relative z-10 overflow-hidden rounded-2xl shadow-2xl'>
 								<Image
-									src='/placeholder.svg?height=600&width=600'
+									src='/loan.jpg?height=600&width=600'
 									alt='Business Growth'
 									width={600}
 									height={600}
