@@ -73,8 +73,8 @@ export default function AboutPage() {
 											Customer First
 										</h3>
 										<p className='text-muted-foreground'>
-											We prioritize our customers' needs
-											and strive to exceed their
+											We prioritize our customers&apos;
+											needs and strive to exceed their
 											expectations in every interaction.
 										</p>
 									</div>

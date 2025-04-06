@@ -59,8 +59,8 @@ export default function SuccessPage() {
 							<div>
 								<p className='font-medium'>Loan Approval</p>
 								<p className='text-sm text-muted-foreground'>
-									Once approved, you'll receive a loan offer
-									with detailed terms.
+									Once approved, you&apos;ll receive a loan
+									offer with detailed terms.
 								</p>
 							</div>
 						</li>

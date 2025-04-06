@@ -53,11 +53,6 @@ export default function ContactPage() {
 			// In a real app, you would send the form data to your backend
 			await new Promise((resolve) => setTimeout(resolve, 1500));
 
-			// toast({
-			//   title: "Message Sent",
-			//   description: "We'll get back to you as soon as possible.",
-			// })
-
 			// Reset form
 			setFormData({
 				name: "",
@@ -66,11 +61,7 @@ export default function ContactPage() {
 				message: "",
 			});
 		} catch (error) {
-			// toast({
-			//   title: "Error",
-			//   description: "Something went wrong. Please try again.",
-			//   variant: "destructive",
-			// })
+			console.log(error);
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -86,8 +77,8 @@ export default function ContactPage() {
 								Contact Us
 							</h1>
 							<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-								Have questions or need assistance? We're here to
-								help.
+								Have questions or need assistance? We&apos;re
+								here to help.
 							</p>
 						</div>
 					</div>
@@ -166,8 +157,8 @@ export default function ContactPage() {
 							<CardHeader>
 								<CardTitle>Send us a Message</CardTitle>
 								<CardDescription>
-									We'd love to hear from you. Please fill out
-									the form below.
+									We&apos;d love to hear from you. Please fill
+									out the form below.
 								</CardDescription>
 							</CardHeader>
 							<form onSubmit={handleSubmit}>
@@ -264,11 +255,11 @@ export default function ContactPage() {
 							</CardHeader>
 							<CardContent>
 								<p className='text-muted-foreground'>
-									Typically, you'll need to provide business
-									registration documents, GST returns, bank
-									statements for the last 6 months, KYC
-									documents of directors/partners, and ITR for
-									the last 2 years.
+									Typically, you&apos;ll need to provide
+									business registration documents, GST
+									returns, bank statements for the last 6
+									months, KYC documents of directors/partners,
+									and ITR for the last 2 years.
 								</p>
 							</CardContent>
 						</Card>

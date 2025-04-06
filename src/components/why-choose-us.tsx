@@ -15,8 +15,8 @@ export function WhyChooseUs() {
 								businesses
 							</h2>
 							<p className='max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-								At Radhe Finance, we've been supporting Indian
-								businesses for over a decade. Our deep
+								At Radhe Finance, we&apos;ve been supporting
+								Indian businesses for over a decade. Our deep
 								understanding of the local market allows us to
 								offer tailored financial solutions.
 							</p>

@@ -17,6 +17,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, CreditCard, Lock } from "lucide-react";
 
+// Define interface for application data
+interface ApplicationData {
+	name: string;
+	email: string;
+	phone: string;
+	loanAmount: number;
+	address: string;
+}
+
 export default function PaymentPage() {
 	const router = useRouter();
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,7 +35,8 @@ export default function PaymentPage() {
 		expiryDate: "",
 		cvv: "",
 	});
-	const [applicationData, setApplicationData] = useState<any>(null);
+	const [applicationData, setApplicationData] =
+		useState<ApplicationData | null>(null);
 
 	useEffect(() => {
 		// Get application data from session storage
@@ -80,6 +90,7 @@ export default function PaymentPage() {
 			//   description: "There was an error processing your payment. Please try again.",
 			//   variant: "destructive",
 			// })
+			console.log(error);
 			setIsSubmitting(false);
 		}
 	};

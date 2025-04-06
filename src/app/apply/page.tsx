@@ -125,6 +125,7 @@ export default function ApplyPage() {
 			toast.error("Something went wrong. Please try again.", {
 				id: loadingToast,
 			});
+			console.log(error);
 			setIsSubmitting(false);
 		}
 	};

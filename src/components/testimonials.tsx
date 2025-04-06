@@ -14,8 +14,8 @@ export function Testimonials() {
 							What Our Clients Say
 						</h2>
 						<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-							Don't just take our word for it. Here's what
-							businesses like yours have to say about Radhe
+							Don&apos;t just take our word for it. Here&apos;s
+							what businesses like yours have to say about Radhe
 							Finance.
 						</p>
 					</div>
@@ -43,11 +43,11 @@ export function Testimonials() {
 						</CardHeader>
 						<CardContent>
 							<p className='text-muted-foreground'>
-								"Radhe Finance helped me expand my textile
+								&quot;Radhe Finance helped me expand my textile
 								business with a quick and hassle-free loan.
 								Their team was supportive throughout the
 								process, and I received the funds within 3
-								days."
+								days.&quot;
 							</p>
 						</CardContent>
 					</Card>
@@ -73,10 +73,10 @@ export function Testimonials() {
 						</CardHeader>
 						<CardContent>
 							<p className='text-muted-foreground'>
-								"When I needed capital to open my third
+								&quot;When I needed capital to open my third
 								restaurant location, Radhe Finance offered me
 								the best terms with minimal documentation. Their
-								customer service is exceptional!"
+								customer service is exceptional!&quot;
 							</p>
 						</CardContent>
 					</Card>
@@ -102,10 +102,10 @@ export function Testimonials() {
 						</CardHeader>
 						<CardContent>
 							<p className='text-muted-foreground'>
-								"As a growing tech startup, we needed funds
+								&quot;As a growing tech startup, we needed funds
 								quickly to seize a market opportunity. Radhe
 								Finance understood our urgency and provided the
-								loan in record time."
+								loan in record time.&quot;
 							</p>
 						</CardContent>
 					</Card>
