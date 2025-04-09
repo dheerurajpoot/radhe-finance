@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -13,9 +12,9 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { CheckCircle2, CreditCard, Lock } from "lucide-react";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 // Define interface for application data
 interface ApplicationData {
@@ -29,12 +28,6 @@ interface ApplicationData {
 export default function PaymentPage() {
 	const router = useRouter();
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [formData, setFormData] = useState({
-		cardNumber: "",
-		cardName: "",
-		expiryDate: "",
-		cvv: "",
-	});
 	const [applicationData, setApplicationData] =
 		useState<ApplicationData | null>(null);
 
@@ -45,52 +38,50 @@ export default function PaymentPage() {
 			router.push("/apply");
 			return;
 		}
-
 		setApplicationData(JSON.parse(storedData));
 	}, [router]);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({ ...prev, [name]: value }));
-	};
+	console.log(applicationData);
+	const formId = "46122254";
+	const apiKey = "3cbe67dd-e8da-4371-8f30-473527d33f0d";
 
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
+	const handlePayment = async () => {
+		if (!applicationData) return;
+
 		setIsSubmitting(true);
+		const { name, email, phone, loanAmount, address } = applicationData;
+		const data = {
+			fields: [
+				{ name: "full_name", value: name },
+				{ name: "email", value: email },
+				{ name: "phone", value: phone },
+				{ name: "loan_amount", value: loanAmount },
+				{ name: "city", value: address },
+			],
+		};
 
-		// Validate form
-		if (
-			!formData.cardNumber ||
-			!formData.cardName ||
-			!formData.expiryDate ||
-			!formData.cvv
-		) {
-			// toast({
-			//   title: "Error",
-			//   description: "Please fill in all required fields",
-			//   variant: "destructive",
-			// })
-			setIsSubmitting(false);
-			return;
-		}
-
-		// Simulate payment processing
 		try {
-			// In a real app, you would send the payment data to your payment gateway
-			await new Promise((resolve) => setTimeout(resolve, 2000));
-
-			// Clear session storage
-			sessionStorage.removeItem("loanApplication");
-
-			// Redirect to success page
-			router.push("/apply/success");
+			const response = await axios.post(
+				`https://api.hsforms.com/submissions/v3/integration/submit/${formId}/${apiKey}`,
+				data,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			if (response.status === 200) {
+				window.location.href =
+					"https://www.instamojo.com/@radhefinance/";
+				toast.success("Payment successful!");
+				router.push("/apply/success");
+			} else {
+				toast.error("Failed to process payment. Please try again.");
+				setIsSubmitting(false);
+			}
 		} catch (error) {
-			// toast({
-			//   title: "Payment Failed",
-			//   description: "There was an error processing your payment. Please try again.",
-			//   variant: "destructive",
-			// })
-			console.log(error);
+			console.error("Payment error:", error);
+			toast.error("Failed to process payment. Please try again.");
 			setIsSubmitting(false);
 		}
 	};
@@ -214,86 +205,36 @@ export default function PaymentPage() {
 							Details
 						</CardTitle>
 						<CardDescription>
-							Enter your card details to complete the payment.
+							Click the button below to proceed with payment.
 						</CardDescription>
 					</CardHeader>
-					<form onSubmit={handleSubmit}>
-						<CardContent className='space-y-4 pt-6'>
-							<div className='space-y-2'>
-								<Label htmlFor='cardNumber'>Card Number</Label>
-								<Input
-									id='cardNumber'
-									name='cardNumber'
-									placeholder='1234 5678 9012 3456'
-									value={formData.cardNumber}
-									onChange={handleChange}
-									required
-									className='border-green-200 focus-visible:ring-green-500'
-								/>
-							</div>
-							<div className='space-y-2'>
-								<Label htmlFor='cardName'>Name on Card</Label>
-								<Input
-									id='cardName'
-									name='cardName'
-									placeholder='Enter name on card'
-									value={formData.cardName}
-									onChange={handleChange}
-									required
-									className='border-green-200 focus-visible:ring-green-500'
-								/>
-							</div>
-							<div className='grid grid-cols-2 gap-4'>
-								<div className='space-y-2'>
-									<Label htmlFor='expiryDate'>
-										Expiry Date
-									</Label>
-									<Input
-										id='expiryDate'
-										name='expiryDate'
-										placeholder='MM/YY'
-										value={formData.expiryDate}
-										onChange={handleChange}
-										required
-										className='border-green-200 focus-visible:ring-green-500'
-									/>
+					<CardContent className='space-y-4 pt-6'>
+						<div className='space-y-2'>
+							<p className='text-sm text-muted-foreground'>
+								You will be redirected to a secure payment page
+								to complete your payment.
+							</p>
+						</div>
+					</CardContent>
+					<CardFooter className='border-t border-green-100 bg-green-50/50 px-6 py-4'>
+						<Button
+							onClick={handlePayment}
+							className='w-full'
+							disabled={isSubmitting}>
+							{isSubmitting ? (
+								<div className='flex items-center'>
+									<span className='mr-2'>
+										Processing Payment...
+									</span>
+									<div className='h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent'></div>
 								</div>
-								<div className='space-y-2'>
-									<Label htmlFor='cvv'>CVV</Label>
-									<Input
-										id='cvv'
-										name='cvv'
-										type='password'
-										placeholder='123'
-										value={formData.cvv}
-										onChange={handleChange}
-										required
-										className='border-green-200 focus-visible:ring-green-500'
-									/>
+							) : (
+								<div className='flex items-center justify-center'>
+									<Lock className='mr-2 h-4 w-4' /> Pay ₹199
 								</div>
-							</div>
-						</CardContent>
-						<CardFooter className='border-t border-green-100 bg-green-50/50 px-6 py-4'>
-							<Button
-								type='submit'
-								className='w-full'
-								disabled={isSubmitting}>
-								{isSubmitting ? (
-									<div className='flex items-center'>
-										<span className='mr-2'>
-											Processing Payment...
-										</span>
-										<div className='h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent'></div>
-									</div>
-								) : (
-									<div className='flex items-center justify-center'>
-										<Lock className='mr-2 h-4 w-4' /> Pay
-										₹199
-									</div>
-								)}
-							</Button>
-						</CardFooter>
-					</form>
+							)}
+						</Button>
+					</CardFooter>
 				</Card>
 			</div>
 

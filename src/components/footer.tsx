@@ -69,13 +69,6 @@ export function Footer() {
 									Contact Us
 								</Link>
 							</li>
-							<li>
-								<Link
-									href='/careers'
-									className='text-sm text-muted-foreground hover:text-primary'>
-									Careers
-								</Link>
-							</li>
 						</ul>
 					</div>
 					<div className='space-y-4'>
@@ -85,16 +78,9 @@ export function Footer() {
 						<ul className='space-y-2'>
 							<li>
 								<Link
-									href='/blog'
+									href='/refund'
 									className='text-sm text-muted-foreground hover:text-primary'>
-									Blog
-								</Link>
-							</li>
-							<li>
-								<Link
-									href='/faq'
-									className='text-sm text-muted-foreground hover:text-primary'>
-									FAQ
+									Refund
 								</Link>
 							</li>
 							<li>

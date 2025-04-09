@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -103,28 +102,16 @@ export default function ApplyPage() {
 		}
 
 		setIsSubmitting(true);
-		const loadingToast = toast.loading("Processing your application...");
 
 		try {
 			// Simulate API call
-			await new Promise((resolve) => setTimeout(resolve, 1500));
+			await new Promise((resolve) => setTimeout(resolve, 1000));
 
 			// Store form data in session storage for the payment page
 			sessionStorage.setItem("loanApplication", JSON.stringify(formData));
-
-			// Log the form data
-			console.log("Form submitted:", formData);
-
-			toast.success("Application submitted successfully!", {
-				id: loadingToast,
-			});
-
-			// Redirect to payment page
 			router.push("/apply/payment");
 		} catch (error) {
-			toast.error("Something went wrong. Please try again.", {
-				id: loadingToast,
-			});
+			toast.error("Something went wrong. Please try again.");
 			console.log(error);
 			setIsSubmitting(false);
 		}
