@@ -17,9 +17,9 @@ export default function TermsPage() {
 							1. Introduction
 						</h2>
 						<p className='text-muted-foreground'>
-							Welcome to Radhe Finance. By accessing our website
-							and using our services, you agree to be bound by
-							these Terms and Conditions.
+							Welcome to SMM Garden. By accessing our website and
+							using our services, you agree to be bound by these
+							Terms and Conditions.
 						</p>
 					</div>
 

@@ -8,9 +8,51 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-	title: "Radhe Finance - Business Loans Made Easy",
+	title: "SMM Garden - Business Loans Made Easy",
 	description:
-		"Get the business loan you need to grow your business with Radhe Finance.",
+		"Get quick and hassle-free business loans with SMM Garden. We offer competitive rates, flexible terms, and personalized financial solutions to help your business grow.",
+	keywords:
+		"business loans, financial services, SME loans, business financing, quick loans, working capital",
+	authors: [{ name: "SMM Garden" }],
+	metadataBase: new URL("https://www.smmgarden.com"),
+	openGraph: {
+		title: "SMM Garden - Business Loans Made Easy",
+		description:
+			"Get quick and hassle-free business loans with SMM Garden. Competitive rates and flexible terms.",
+		url: "https://www.smmgarden.com",
+		siteName: "SMM Garden",
+		images: [
+			{
+				url: "/og-image.jpg",
+				width: 1200,
+				height: 630,
+				alt: "SMM Garden - Business Loans",
+			},
+		],
+		locale: "en_US",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "SMM Garden - Business Loans Made Easy",
+		description:
+			"Get quick and hassle-free business loans with SMM Garden. Competitive rates and flexible terms.",
+		images: ["/og-image.jpg"],
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
+	alternates: {
+		canonical: "https://www.smmgarden.com",
+	},
 };
 
 export default function RootLayout({

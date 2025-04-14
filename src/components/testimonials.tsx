@@ -43,7 +43,7 @@ export function Testimonials() {
 						</CardHeader>
 						<CardContent>
 							<p className='text-muted-foreground'>
-								&quot;Radhe Finance helped me expand my textile
+								&quot;SMM Garden helped me expand my textile
 								business with a quick and hassle-free loan.
 								Their team was supportive throughout the
 								process, and I received the funds within 3
@@ -74,8 +74,8 @@ export function Testimonials() {
 						<CardContent>
 							<p className='text-muted-foreground'>
 								&quot;When I needed capital to open my third
-								restaurant location, Radhe Finance offered me
-								the best terms with minimal documentation. Their
+								restaurant location, SMM Garden offered me the
+								best terms with minimal documentation. Their
 								customer service is exceptional!&quot;
 							</p>
 						</CardContent>

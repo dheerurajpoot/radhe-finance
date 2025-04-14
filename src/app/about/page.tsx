@@ -11,7 +11,7 @@ export default function AboutPage() {
 						<div className='flex flex-col justify-center space-y-4'>
 							<div className='space-y-2'>
 								<h1 className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>
-									About Radhe Finance
+									About SMM Garden
 								</h1>
 								<p className='max-w-[600px] text-muted-foreground md:text-xl'>
 									Empowering Indian businesses with the
@@ -23,7 +23,7 @@ export default function AboutPage() {
 						<div className='flex items-center justify-center'>
 							<Image
 								src='/placeholder.svg?height=400&width=600'
-								alt='Radhe Finance Office'
+								alt='SMM Garden Office'
 								width={600}
 								height={400}
 								className='aspect-video overflow-hidden rounded-xl object-cover'

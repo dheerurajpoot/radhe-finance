@@ -9,7 +9,7 @@ export function Footer() {
 					<div className='space-y-4'>
 						<Link href='/' className='flex items-center space-x-2'>
 							<span className='text-2xl font-bold text-primary'>
-								Radhe Finance
+								SMM Garden
 							</span>
 						</Link>
 						<p className='text-sm text-muted-foreground'>
@@ -117,7 +117,7 @@ export function Footer() {
 					</div>
 				</div>
 				<div className='mt-12 border-t border-green-100 pt-8 text-center text-sm text-muted-foreground'>
-					© {new Date().getFullYear()} Radhe Finance. All rights
+					© {new Date().getFullYear()} SMM Garden. All rights
 					reserved.
 				</div>
 			</div>
