@@ -71,10 +71,11 @@ export default function PaymentPage() {
 				}
 			);
 			if (response.status === 200) {
-				window.location.href =
-					"https://www.instamojo.com/@radhefinance/";
-				toast.success("Payment successful!");
-				router.push("/apply/success");
+				window.location.href = "https://rzp.io/rzp/GKzEReG";
+				setTimeout(() => {
+					router.push("/apply/success");
+					// toast.success("Payment successful!");
+				}, 2000);
 			} else {
 				toast.error("Failed to process payment. Please try again.");
 				setIsSubmitting(false);
@@ -187,7 +188,7 @@ export default function PaymentPage() {
 							<div className='flex justify-between font-medium'>
 								<span>Application Fee:</span>
 								<span className='text-primary font-bold'>
-									₹199
+									₹99
 								</span>
 							</div>
 							<p className='mt-2 text-xs text-muted-foreground'>
