@@ -192,7 +192,7 @@ export default function PaymentPage() {
 								</span>
 							</div>
 							<p className='mt-2 text-xs text-muted-foreground'>
-								This is a one-time non-refundable application
+								This is a one-time refundable application
 								processing fee.
 							</p>
 						</div>
@@ -231,7 +231,7 @@ export default function PaymentPage() {
 								</div>
 							) : (
 								<div className='flex items-center justify-center'>
-									<Lock className='mr-2 h-4 w-4' /> Pay ₹199
+									<Lock className='mr-2 h-4 w-4' /> Pay ₹99
 								</div>
 							)}
 						</Button>
