@@ -8,22 +8,22 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-	title: "SMM Garden - Business Loans Made Easy",
+	title: "Mudra Loan- Apply Online for Business Loan",
 	description:
-		"Get quick and hassle-free business loans with SMM Garden. We offer competitive rates, flexible terms, and personalized financial solutions to help your business grow.",
+		"Get quick and hassle-free business loans upto 50 Lakhs. We offer competitive rates, flexible terms, and personalized financial solutions to help your business grow.",
 	keywords:
-		"business loans, financial services, SME loans, business financing, quick loans, working capital",
+		"business loans, mudra loan, financial services, SME loans, business financing, quick loans, working capital",
 	authors: [{ name: "SMM Garden" }],
 	metadataBase: new URL("https://www.smmgarden.com"),
 	openGraph: {
-		title: "SMM Garden - Business Loans Made Easy",
+		title: "Mudra Loan- Apply Online for Business Loan",
 		description:
-			"Get quick and hassle-free business loans with SMM Garden. Competitive rates and flexible terms.",
+			"Get quick and hassle-free business loans upto 50 Lakhs. Competitive rates and flexible terms.",
 		url: "https://www.smmgarden.com",
 		siteName: "SMM Garden",
 		images: [
 			{
-				url: "/og-image.jpg",
+				url: "/loan.png",
 				width: 1200,
 				height: 630,
 				alt: "SMM Garden - Business Loans",
@@ -34,10 +34,10 @@ export const metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "SMM Garden - Business Loans Made Easy",
+		title: "Mudra Loan- Apply Online for Business Loan",
 		description:
-			"Get quick and hassle-free business loans with SMM Garden. Competitive rates and flexible terms.",
-		images: ["/og-image.jpg"],
+			"Get quick and hassle-free business loans upto 50 Lakhs. Competitive rates and flexible terms.",
+		images: ["/loan.png"],
 	},
 	robots: {
 		index: true,
